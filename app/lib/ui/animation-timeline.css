@@ -1,0 +1,20 @@
+li{
+    view-timeline-name: --reveal;
+
+    animation-name: show;
+    animation-fill-mode: both;
+
+    animation-timeline: --reveal;
+    animation-range: entry 0% cover 20%;
+}
+
+@keyframes show {
+    0% {
+        opacity: 0;
+        scale: 10%;
+    }
+    100% {
+        opacity: 1;
+        scale: 100%;
+    }
+}
