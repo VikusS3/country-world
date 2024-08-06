@@ -1,4 +1,5 @@
 // app/countries/[id]/page.js
+import Image from "next/image";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
@@ -23,12 +24,18 @@ export default async function CountryPage({ params }) {
   }
 
   return (
-    <div>
+    <div className="w-full h-screen flex justify-center items-center flex-col">
       <h1>{country[0].name.common}</h1>
       <p>Region: {country[0].region}</p>
       <p>Subregion: {country[0].subregion}</p>
       <p>Capital: {country[0].capital}</p>
       <p>Population: {country[0].population}</p>
+      <Image
+        src={country[0].flags.svg}
+        alt={country[0].name.common}
+        width={200}
+        height={200}
+      />
     </div>
   );
 }

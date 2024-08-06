@@ -12,7 +12,7 @@ export default function RegionFilterButtons({
         <button
           key={region.name}
           className={`${region.color} text-white font-bold py-2 px-4 rounded ${
-            selectedRegion === region.name ? "opacity-80" : ""
+            selectedRegion === region.name ? "opacity-80 " : ""
           }`}
           onClick={() => setSelectedRegion(region.name)}
         >
