@@ -1,21 +1,17 @@
 import Image from "next/image";
 
 import Link from "next/link";
+import { useRegion } from "../context/RegionContext";
 
-export default function Countries({ countries, selectedRegion }) {
-  const filterCountries = countries.filter((country) => {
-    if (selectedRegion === "all") {
-      return true;
-    }
-    return country.region === selectedRegion;
-  });
+export default function Countries() {
+  const { countries } = useRegion();
   return (
     <>
-      <ul className=" w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        {filterCountries.map((country) => (
+      <ul className=" w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        {countries.map((country) => (
           <li
             key={country.cca3}
-            className="bg-zinc-800/55 shadow-md rounded-md p-4 flex justify-center items-center flex-col gap-5"
+            className="bg-zinc-800/55 transition-all shadow-md rounded-md p-4 flex justify-center items-center flex-col gap-5 hover:bg-zinc-800/80"
           >
             <Link
               href={`/countries/${country.cca3}`}

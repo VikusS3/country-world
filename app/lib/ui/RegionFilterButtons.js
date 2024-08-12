@@ -1,11 +1,10 @@
 // app/components/RegionFilterButtons.js
 import { regions } from "@/app/constantes";
+import { useRegion } from "@/app/context/RegionContext";
 import React from "react";
 
-export default function RegionFilterButtons({
-  selectedRegion,
-  setSelectedRegion,
-}) {
+export default function RegionFilterButtons() {
+  const { selectedRegion, setSelectedRegion } = useRegion();
   return (
     <div className="flex  space-x-4 mb-4">
       {regions.map((region) => (
