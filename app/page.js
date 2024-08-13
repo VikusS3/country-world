@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Countries from "./components/Countries";
 import Header from "./components/Header";
 import { useCountries } from "./hooks/useCountries";
@@ -10,7 +9,7 @@ export default function Home() {
   const { data: countries } = useCountries();
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-16">
+    <main className="flex min-h-screen flex-col items-center justify-between p-16 w-full max-w-[95rem] ">
       <RegionProvider>
         <Header />
         <Countries countries={countries} />

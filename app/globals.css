@@ -31,3 +31,10 @@ body {
     text-wrap: balance;
   }
 }
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
