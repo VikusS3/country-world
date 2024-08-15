@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import "./lib/ui/animation-timeline.css";
+import "./lib/ui/bentoCss.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
