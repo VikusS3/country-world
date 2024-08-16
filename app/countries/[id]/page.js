@@ -24,7 +24,7 @@ export default async function CountryPage({ params }) {
   }
 
   return (
-    <div className="max-w-[85rem] w-full justify-center items-center flex h-screen">
+    <div className="flex w-full justify-center items-center h-screen">
       <div class="parent">
         <div class="div1">
           <p className="text-2xl">
@@ -63,19 +63,6 @@ export default async function CountryPage({ params }) {
           </p>
         </div>
         <div class="div2">
-          {" "}
-          <h1 className="text-3xl font-bold text-zinc-50">
-            {country[0].name.official}
-          </h1>
-        </div>
-        <div class="div3 flex justify-center items-center gap-5">
-          <Image
-            src={country[0].flags.svg}
-            alt={country[0].name.common}
-            width={200}
-            className="rounded-lg"
-            height={200}
-          />
           <div>
             <h1 className="text-3xl font-bold text-zinc-50">
               {country[0].name.official}
@@ -84,6 +71,15 @@ export default async function CountryPage({ params }) {
               {country[0].name.common}
             </span>
           </div>
+        </div>
+        <div class="div3 flex justify-center items-center gap-5 bg-zinc-950/95">
+          <Image
+            src={country[0].flags.svg}
+            alt={country[0].name.common}
+            className="rounded-lg aspect-auto"
+            width={200}
+            height={200}
+          />
         </div>
         <div class="div4">
           {
@@ -106,6 +102,27 @@ export default async function CountryPage({ params }) {
           <p>Capital: {country[0].capital}</p>
         </div>
       </div>
+      {/* <div class="main-container">
+  <div class="grid-container">
+    <div class="grid-item"></div>
+    <div class="grid-item">Thunderbolt 4</div>
+    <div class="grid-item">5 nm process</div>
+    <div class="grid-item">800GB/s<br><small>Memory bandwidth</small></div>
+    <div class="grid-item">20-core CPU<br><small>Up to</small></div>
+    <div class="grid-item large">
+      <img src="apple-logo.png" alt="M1 Ultra Logo">
+      <p>M1 ULTRA</p>
+    </div>
+    <div class="grid-item">64-core GPU<br><small>Up to</small></div>
+    <div class="grid-item">32-core Neural Engine<br><small>22 trillion operations per second</small></div>
+    <div class="grid-item">Secure Enclave</div>
+    <div class="grid-item">114 billion Transistors</div>
+    <div class="grid-item">2.5TB/s<br><small>Interprocessor bandwidth</small></div>
+    <div class="grid-item">UltraFusion architecture</div>
+    <div class="grid-item">Industry-leading<br><small>performance per watt</small></div>
+    <div class="grid-item">128GB<br><small>Unified memory</small></div>
+  </div>
+</div> */}
     </div>
   );
 }
