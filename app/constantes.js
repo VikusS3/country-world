@@ -18,3 +18,16 @@ export const regions = [
     color: "bg-teal-500 hover:bg-teal-600",
   },
 ];
+
+export const notData = [
+  {
+    name: "Not Found",
+    flags: { svg: "/images/not-found.svg" },
+    capital: "No capital",
+    region: "No region",
+    subregion: "No subregion",
+    independent: false,
+    population: 0,
+    languages: "No languages",
+  },
+];

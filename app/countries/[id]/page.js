@@ -1,6 +1,7 @@
 // app/countries/[id]/page.js
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { notData } from "../../constantes";
 
 export async function generateStaticParams() {
   const res = await fetch("https://restcountries.com/v3.1/all");
@@ -25,7 +26,7 @@ export default async function CountryPage({ params }) {
 
   return (
     <section className="w-full h-screen flex justify-center items-center gap-10">
-      <div>
+      <article className=" border-2 border-white p-10 rounded-3xl bg-zinc-900/30 shadow shadow-white">
         <header className="flex flex-col text-center gap-5 items-center justify-center">
           <Image
             src={country[0].flags.svg}
@@ -40,19 +41,19 @@ export default async function CountryPage({ params }) {
             <p className="text-xl ">
               Capital:{" "}
               <span className="text-base text-zinc-100">
-                {country[0].capital}
+                {country[0].capital || notData[0].capital}
               </span>
             </p>
             <p className="text-xl ">
               Region:{" "}
               <span className="text-base text-zinc-100">
-                {country[0].region}
+                {country[0].region || notData[0].region}
               </span>
             </p>
             <p className="text-xl ">
               Subregion:{" "}
               <span className="text-base text-zinc-100">
-                {country[0].subregion}
+                {country[0].subregion || notData[0].subregion}
               </span>
             </p>
             <p className="text-xl ">
@@ -77,16 +78,18 @@ export default async function CountryPage({ params }) {
             </p>
             <p className="text-xl ">
               Timezones:{" "}
-              <span className="text-base text-zinc-100">
-                {country[0].timezones.join(", ")}
+              <span className="text-base text-zinc-100 ">
+                {Object.values(country[0].timezones)
+                  .map((timezone) => timezone.split("/").pop())
+                  .join(", ") || "No timezones"}
               </span>
             </p>
             <p className="text-xl ">
               Languages:{" "}
               <span className="text-base text-zinc-100">
-                {Object.values(country[0].languages)
-                  .map((lang) => lang)
-                  .join(", ")}
+                {country[0].languages
+                  ? Object.values(country[0].languages).join(", ")
+                  : notData[0].languages}
               </span>
             </p>
           </div>
@@ -102,7 +105,7 @@ export default async function CountryPage({ params }) {
             View flag
           </a>
         </footer>
-      </div>
+      </article>
     </section>
   );
 }
